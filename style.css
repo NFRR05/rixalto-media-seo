@@ -116,11 +116,11 @@ body {
 
 .hero {
   position: relative;
-  min-height: auto; /* Rimosso calc(100vh - 100px) per ridurre lo spazio vuoto */
-  padding: 20px 0 40px 0; /* Ridotto il padding top da 80px a 20px */
+  min-height: auto;
+  padding: 20px 0 40px 0;
   background: linear-gradient(180deg, #F8F8F8 0%, var(--color-white) 100%);
   display: flex;
-  align-items: flex-start; /* Allinea il contenuto verso l'alto */
+  align-items: flex-start;
   overflow: hidden;
 }
 
@@ -133,7 +133,7 @@ body {
 
 .hero__wrapper {
   display: flex;
-  align-items: flex-end; /* Allineamento al bordo inferiore del bottone */
+  align-items: flex-end;
   justify-content: space-between;
   gap: 60px;
 }
@@ -273,10 +273,10 @@ body {
   position: relative;
   width: 100%;
   max-width: 620px;
-  height: 620px;   /* Altezza ridotta per il crop */
+  height: 620px;
   display: flex;
   align-items: flex-end;
-  overflow: hidden; /* Taglia la parte superiore dell'immagine */
+  overflow: hidden;
 }
 
 .hero__image-bg {
@@ -284,7 +284,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  aspect-ratio: 1 / 1; /* Forza la forma a quadrato */
+  aspect-ratio: 1 / 1;
   background-color: var(--color-primary);
   border-radius: 24px;
   z-index: 1;
@@ -293,10 +293,10 @@ body {
 .hero__main-image {
   position: relative;
   width: 100%;
-  height: 140%; /* Aumentata l'altezza per permettere lo spostamento */
+  height: 140%;
   object-fit: contain;
   object-position: bottom;
-  margin-bottom: -20px; /* Piccolo aggiustamento per il bordo basso */
+  margin-bottom: -20px;
   z-index: 3;
 }
 
@@ -378,9 +378,9 @@ body {
   }
   .hero__image-wrapper {
     order: 2;
-    height: 400px; /* Ridotta per eliminare lo spazio vuoto superiore */
+    height: 400px;
     max-width: 480px; 
-    margin: -30px auto 0; /* Margine negativo per avvicinare ulteriormente al titolo */
+    margin: -30px auto 0;
     width: 100%;
   }
   .hero__description {
@@ -490,7 +490,7 @@ body {
 .partners__grid {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc(50% - 30px); /* 2 columns per view */
+  grid-auto-columns: calc(50% - 30px);
   gap: 60px;
   padding: 20px 0;
 }
@@ -512,7 +512,7 @@ body {
 }
 
 .partners__logo {
-  height: 120px; /* WAY bigger */
+  height: 120px;
   max-width: 280px;
   width: auto;
   object-fit: contain;
@@ -545,7 +545,7 @@ body {
 
 @media (max-width: 1024px) {
   .partners__grid {
-    grid-auto-columns: calc(100% - 0px); /* 1 column per view (2x1 grid) */
+    grid-auto-columns: calc(100% - 0px);
     gap: 40px;
   }
   .partners__logo {
@@ -688,7 +688,6 @@ body {
   transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Entrata da sinistra per il primo blocco, da destra per il secondo */
 .features__block:nth-child(1) .features__content { transform: translateX(-60px); }
 .features__block:nth-child(2) .features__content { transform: translateX(60px); }
 
@@ -781,7 +780,6 @@ body {
   transition: opacity 0.8s ease 0.2s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
 }
 
-/* Immagine entra dal lato opposto al testo */
 .features__block:nth-child(1) .features__image-wrap { transform: translateX(60px); }
 .features__block:nth-child(2) .features__image-wrap { transform: translateX(-60px); }
 
@@ -918,7 +916,6 @@ body {
   transform: translateY(0);
 }
 
-/* Staggered delays per le card dei servizi */
 .services__card:nth-child(1) { transition-delay: 0.1s; }
 .services__card:nth-child(2) { transition-delay: 0.2s; }
 .services__card:nth-child(3) { transition-delay: 0.3s; }
@@ -1126,7 +1123,7 @@ body {
 }
 
 .faq__item {
-  background-color: var(--color-bg-light); /* Matching the snippet's light grey/purple */
+  background-color: var(--color-bg-light);
   border-radius: 20px;
   overflow: hidden;
   transition: var(--transition);
@@ -1332,17 +1329,25 @@ body {
 }
 
 .cta__input-wrapper {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 16px 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   transition: var(--transition);
   width: 100%;
 }
 
 .cta__input-wrapper:focus-within {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.9);
   border-color: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.cta__input-wrapper:has(.cta__input:not(:placeholder-shown)) {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .cta__input-wrapper--full {
@@ -1353,14 +1358,15 @@ body {
   width: 100%;
   background: transparent;
   border: none;
-  color: var(--color-white);
+  color: var(--color-text-main);
   font-size: 16px;
   font-family: var(--font-family);
   outline: none;
+  font-weight: 500;
 }
 
 .cta__input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: #888888;
 }
 
 .cta__privacy {
@@ -1394,15 +1400,15 @@ body {
   background: var(--color-white);
   color: var(--color-primary);
   border: none;
-  padding: 16px 32px; /* Reso simmetrico per centratura perfetta */
+  padding: 16px 32px;
   border-radius: 50px;
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-  display: flex; /* Cambiato da inline-flex a flex per supportare width 100% */
-  width: 100%;   /* Ora occupa tutta la larghezza del form */
-  justify-content: center; /* Centra testo e icona */
+  display: flex;
+  width: 100%;
+  justify-content: center;
   align-items: center;
   gap: 12px;
   transition: var(--transition);
@@ -1718,7 +1724,6 @@ body {
   transform: translateY(0);
 }
 
-/* Stagger per i blocchi SEO */
 .seo-content__block:nth-child(1) { transition-delay: 0.1s; }
 .seo-content__block:nth-child(2) { transition-delay: 0.2s; }
 .seo-content__block:nth-child(3) { transition-delay: 0.3s; }
