@@ -375,9 +375,9 @@ body {
   }
   .hero__image-wrapper {
     order: 2;
-    height: 550px; /* Più grande su mobile (era 450px) */
-    max-width: 480px; /* Più largo su mobile (era 380px) */
-    margin: 0 auto;
+    height: 400px; /* Ridotta per eliminare lo spazio vuoto superiore */
+    max-width: 480px; 
+    margin: -30px auto 0; /* Margine negativo per avvicinare ulteriormente al titolo */
     width: 100%;
   }
   .hero__description {
@@ -558,162 +558,75 @@ body {
   }
 }
 
-/* Stats Section */
+/* Stats Section - Fresh & Simple Layout */
 .stats {
-  padding: 40px 0;
+  padding: 100px 0;
   background-color: var(--color-white);
 }
 
 .stats__header {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
+  max-width: 900px;
+  margin: 0 auto 80px;
 }
 
 .stats__title {
-  font-size: 40px;
+  font-size: 56px;
   font-weight: 700;
   color: var(--color-text-main);
-  margin-bottom: 16px;
-  line-height: 1.2;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  letter-spacing: -1px;
 }
 
 .stats__subtitle {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--color-text-muted);
-}
-
-.stats__wrapper {
-  background-color: var(--color-text-main); /* Dark gray background */
-  border-radius: 40px;
-  padding: 24px 60px 24px 24px;
-  display: flex;
-  align-items: center;
-  gap: 80px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stats__wrapper.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.stats__highlight {
-  background-color: var(--color-primary); /* Red highlight */
-  border-radius: 32px;
-  padding: 40px 32px;
-  color: var(--color-white);
-  min-width: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: var(--shadow-md);
-}
-
-.stats__highlight-number {
-  font-size: 72px;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 16px;
-}
-
-.stats__highlight-title {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-.stats__highlight-text {
-  font-size: 18px;
   line-height: 1.6;
-  opacity: 0.9;
 }
 
-.stats__list {
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
+.stats__simple-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
+  border-top: 1px solid var(--color-grey-border);
+  padding-top: 60px;
 }
 
-.stats__item {
-  flex: 1;
-  color: var(--color-white);
+.stats__card {
+  text-align: center;
+  padding: 20px;
 }
 
-.stats__item-number {
-  font-size: 56px;
+.stats__number {
+  font-size: 84px;
   font-weight: 700;
-  margin-bottom: 12px;
+  color: var(--color-primary);
   line-height: 1;
+  margin-bottom: 12px;
+  display: block;
 }
 
-.stats__item-text {
+.stats__label {
   font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.8;
-  max-width: 200px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-@media (max-width: 1024px) {
-  .stats__wrapper {
-    flex-direction: column;
-    padding: 24px;
-    gap: 40px;
-  }
-  .stats__highlight {
-    width: 100%;
-    min-width: auto;
-    text-align: center;
-  }
-  .stats__list {
-    width: 100%;
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
-  }
-  .stats__item-text {
-    max-width: 100%;
-  }
-}
-
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  .stats {
-    padding: 20px 0;
+  .stats { padding: 60px 0; }
+  .stats__header { margin-bottom: 40px; }
+  .stats__title { font-size: 36px; }
+  .stats__subtitle { font-size: 17px; }
+  .stats__simple-grid { 
+    grid-template-columns: 1fr; 
+    gap: 40px;
+    padding-top: 40px;
   }
-  .stats__header {
-    margin: 0 auto 32px;
-  }
-  .stats__title {
-    font-size: 28px;
-  }
-  .stats__subtitle {
-    font-size: 16px;
-  }
-  .stats__wrapper {
-    border-radius: 24px;
-    padding: 20px;
-    gap: 24px;
-  }
-  .stats__highlight {
-    border-radius: 20px;
-    padding: 28px 20px;
-  }
-  .stats__highlight-title {
-    font-size: 24px !important;
-  }
-  .stats__highlight-text {
-    font-size: 15px;
-  }
-  .stats__item-number {
-    font-size: 40px;
-  }
-  .stats__item-text {
-    font-size: 14px;
-  }
+  .stats__number { font-size: 64px; }
 }
 
 /* Features / Value Proposition Section */
